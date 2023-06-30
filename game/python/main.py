@@ -11,6 +11,8 @@ class Game:
 		self.screen = pygame.display.set_mode((WIDTH,HEIGTH))
 		pygame.display.set_caption('Cell Attack')
 		self.clock = pygame.time.Clock()
+		img1 = pygame.image.load('../graphics/logo/logo.png')
+		pygame.display.set_icon(img1)
 
 		self.level = Level()
 	 

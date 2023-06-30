@@ -27,7 +27,10 @@ class Player(py.sprite.Sprite):
 
 	def import_player_assets(self):
 		charac_path = '../graphics/Player/'
-		self.animations = {'down_idle': [], 'down': []}
+		self.animations = {'down_idle': [], 'down': [],
+						   'right_idle' : [], 'right' :  [],
+						   'left_idle' : [], 'left' :  [],
+						   'up_idle' : [], 'up' :  []}
 
 		for animation in self.animations.keys():
 			full_path = charac_path + animation

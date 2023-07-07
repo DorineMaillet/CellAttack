@@ -3,14 +3,15 @@ import pygame as py
 from settings import *
 from support import import_folder
 from entity import Entity
+from quest import *
 
 class Player(Entity):
 	def __init__(self,pos,groups,obstacle_sprites):
 		super().__init__(groups)
-		self.image = py.image.load('../graphics/Player/down_idle/down_idle.png').convert_alpha()
+		self.image = py.image.load('graphics/Player/down_idle/down_idle.png').convert_alpha()
 		self.rect = self.image.get_rect(topleft = pos)
-		self.hitbox = self.rect.inflate(0,-26)
-
+		self.hitbox = self.rect.inflate(-10,-26)
+  
 		#animations setup
 		self.import_player_assets()
 
@@ -20,7 +21,7 @@ class Player(Entity):
 		self.obstacle_sprites = obstacle_sprites
 
 	def import_player_assets(self):
-		charac_path = '../graphics/Player/'
+		charac_path = 'graphics/Player/'
 		self.animations = {'down_idle': [], 'down': [],
 						   'right_idle' : [], 'right' :  [],
 						   'left_idle' : [], 'left' :  [],
@@ -29,7 +30,7 @@ class Player(Entity):
 		for animation in self.animations.keys():
 			full_path = charac_path + animation
 			self.animations[animation] = import_folder(full_path)
-		print(self.animations)
+		
 
 	def get_status(self):
 		if self.direction.x == 0 and self.direction.y == 0:
